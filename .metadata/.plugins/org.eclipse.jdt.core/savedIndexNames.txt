@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+S:\Users\18.01363-5\Desktop\18.01363-5_ThiagoAraujo\.metadata\.plugins\org.eclipse.jdt.core
+3772178638.index
