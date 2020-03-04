@@ -12,7 +12,7 @@ public class ex3{
         usuario1 = scanner.nextLine();
         System.out.print("Informe a senha1: ");
         senha1 = scanner.nextLine();
-        while((senha1 != senha2) && (usuario1 != usuario2)){
+        while(!(senha1.equals(senha2)) && !(usuario1.equals(usuario2))){
             System.out.print("Informe o usuario2: ");
             usuario2 = scanner.nextLine();
             System.out.print("Informe a senha2: ");
