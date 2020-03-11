@@ -1,5 +1,3 @@
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable.BinaryOp.And;
-
 //1- Pedra
 //2- Papel
 //3- Tesoura
@@ -8,7 +6,7 @@ import org.graalvm.compiler.core.common.type.ArithmeticOpTable.BinaryOp.And;
 //1= Jogador 2
 //2= Empate
 
-public class Jogo {
+public class Jogo1 {
     int Batalha( Jogador J1, Jogador J2){
         if((J1.Jogada.Escolha) == (J2.Jogada.Escolha)){
             return 2;
