@@ -6,16 +6,19 @@ import java.util.List;
 import java.util.Scanner;
 
 import enums.JornadaEnum;
+import enums.MembrosEnum;
+import interfaces.PostarMensagem;
 import jdk.nashorn.internal.ir.FunctionCall;
 import models.Membros;
 
 public class Sistema {
     List<Membros> membros = new ArrayList<>();
     JornadaEnum jornada = JornadaEnum.REGULAR;
-    public void run(){
+
+    public void run() {
         int op = 1;
         System.out.println("Bem vindo ao nosso sistema!");
-        while(op!=0){
+        while (op != 0) {
             System.out.println("Escolha uma opcao:");
             System.out.println("1 - Cadastras novo membro");
             System.out.println("2 - Apresentacao dos membro cadastrados");
@@ -26,16 +29,16 @@ public class Sistema {
             System.out.println("Jornada de trabalho: ");
             Scanner scanner = new Scanner(System.in);
             op = scanner.nextInt();
-            if(op==1){
+            if (op == 1) {
                 CadastrarMembros();
-            }else if(op==2){
+            } else if (op == 2) {
                 ApresentacaoMembros();
-            }else if(op==3){
-                
-            }else if(op==4){
+            } else if (op == 3) {
+
+            } else if (op == 4) {
                 TrocarJornada();
-            }else if(op==5){
-                
+            } else if (op == 5) {
+                membros.get(0).CriarMensagem(jornada, membros.funcao);
             }else if (op != 0){
                 System.out.println("Digite um numero valido!");
             }
@@ -65,7 +68,6 @@ public class Sistema {
         System.out.println("Membros cadastrados: ");
         for(int i = 0; i < membros.size(); i++){
             System.out.println("Nome: " + membros.get(i).getNome());
-            System.out.println("Email: " + membros.get(i).getEmail());
             System.out.println("Email: " + membros.get(i).getEmail());
         } 
     }
