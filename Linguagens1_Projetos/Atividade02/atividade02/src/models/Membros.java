@@ -22,7 +22,7 @@ public class Membros{
     public String getNome(){
         return nome;
     }
-    public String getemail(){
+    public String getEmail(){
         return email;
     }
 }

@@ -36,7 +36,7 @@ public class Sistema {
                 TrocarJornada();
             }else if(op==5){
                 
-            }else{
+            }else if (op != 0){
                 System.out.println("Digite um numero valido!");
             }
         }
@@ -63,7 +63,8 @@ public class Sistema {
     private void ApresentacaoMembros() {
         System.out.println("Membros cadastrados: ");
         for(int i = 0; i < membros.size(); i++){
-            System.out.println(membros.get(i).nome);
+            System.out.println("Nome: " + membros.get(i).getNome());
+            System.out.println("Email: " + membros.get(i).getEmail());
         } 
     }
     private  void DeixarIr(){
