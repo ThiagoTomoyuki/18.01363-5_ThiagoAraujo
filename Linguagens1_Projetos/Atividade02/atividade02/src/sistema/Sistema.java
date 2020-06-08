@@ -43,6 +43,7 @@ public class Sistema {
         
 
     }
+
     private void CadastrarMembros(){  
         String nome,email;
         int funcao;
@@ -63,15 +64,16 @@ public class Sistema {
     private void ApresentacaoMembros() {
         System.out.println("Membros cadastrados: ");
         for(int i = 0; i < membros.size(); i++){
-            System.out.println("Nome: " + membros.get(i).getNome());
-            System.out.println("Email: " + membros.get(i).getEmail());
+            System.out.println("Nome: " + membros.get(i).);
         } 
     }
-    private  void DeixarIr(){
+
+    private void DeixarIr(){
             
     }
 
-    private static void TrocarJornada() {
+    private void TrocarJornada() {
+
         if(jornada == JornadaEnum.EXTRA){
             jornada = JornadaEnum.REGULAR;
         }else if(jornada == JornadaEnum.REGULAR)

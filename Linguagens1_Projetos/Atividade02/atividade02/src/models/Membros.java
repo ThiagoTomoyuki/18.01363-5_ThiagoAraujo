@@ -1,8 +1,9 @@
 package models;
 
 import enums.MembrosEnum;
+import interfaces.*;
 
-public class Membros{
+public class Membros implements PostarMensagem{
     String nome;
     String email;
     MembrosEnum funcao;
