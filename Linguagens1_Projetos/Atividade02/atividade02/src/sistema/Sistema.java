@@ -64,11 +64,13 @@ public class Sistema {
     private void ApresentacaoMembros() {
         System.out.println("Membros cadastrados: ");
         for(int i = 0; i < membros.size(); i++){
-            System.out.println("Nome: " + membros.get(i).);
+            System.out.println("Nome: " + membros.get(i).getNome());
+            System.out.println("Email: " + membros.get(i).getEmail());
+            System.out.println("Email: " + membros.get(i).getEmail());
         } 
     }
 
-    private void DeixarIr(){
+    private  void DeixarIr(){
             
     }
 

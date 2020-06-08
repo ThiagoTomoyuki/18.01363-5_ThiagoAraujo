@@ -1,5 +1,8 @@
 package interfaces;
 
+import enums.JornadaEnum;
+import enums.MembrosEnum;
+
 public interface PostarMensagem {
-    CriarMensagem(JornadaEnum jornada,MembrosEnum tipo);
+    void CriarMensagem(JornadaEnum jornada, MembrosEnum tipo);
 }
