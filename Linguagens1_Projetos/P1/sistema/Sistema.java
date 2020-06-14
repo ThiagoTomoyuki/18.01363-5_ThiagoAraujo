@@ -11,8 +11,8 @@ import enums.EstadoDoPedido;
 public class Sistema {
     String descricao, id;
     double valor;
-    EstadoDoPedido estadoDoPedido = EstadoDoPedido.REALIZADO;
     int op = 1;
+    int numeroDoPedido;
     int senha = 0;
     Usuario usuario = new Usuario("Pizzaria Rato que Ri", "EmailQualquer@hotmail.com");
     List <Pedido> pedidos = new ArrayList<>(); 
@@ -34,23 +34,20 @@ public class Sistema {
                 id = geradorId();
                 pedidos.add(new Pedido(id, descricao, valor));
             }else if(op == 2){
-                printarPedidos();
+                for(int i = 0; i< pedidos.size();i++){
+                    pedidos.get(i).printarPedidos(i);
+                }
             }else if(op == 3){
-                
+                System.out.println("Qual o numero do pedido deseja alterar:");
+                numeroDoPedido = Integer.parseInt(scanner.nextLine());
+                pedidos.get(numeroDoPedido-1).AlterarEstadoDoPedido();
             }else if(op != 0){
                 System.out.println("Digite uma opção valida!");
             }
         }    
     }
-    public void printarPedidos(){
-        System.out.println("Pedidos:");
-        for (Pedido pedido : pedidos) {
-            System.out.println("Id do pedido: "+pedido.getId());
-            System.out.println("Descricao: "+pedido.getDescricao());
-            System.out.println("Valor: "+pedido.getValor());
-        }
-    }
-    private String geradorId(){
+
+    private String geradorId() {
         Random random = new Random();
         String idGerado = "";
         for(int i = 0; i < 3; i++)

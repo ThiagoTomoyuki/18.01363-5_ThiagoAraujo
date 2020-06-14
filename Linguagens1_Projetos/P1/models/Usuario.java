@@ -7,10 +7,10 @@ public class Usuario {
         this.nome = nome;
         this.email = email;
     }
-        public String getName(){
-            return nome;
-        }
-        public String getEmail() {
-            return email;
-        }
+    public String getName(){
+        return nome;
+    }
+    public String getEmail() {
+        return email;
+    }
 }
