@@ -34,7 +34,7 @@ public class Pedido {
         }
     }
     public void printarPedidos(int i){
-        System.out.println((i+1)+"º Pedido");
+        System.out.println("\u001b[41m " + (i+1)+"º Pedido \u001b[0m ");
         System.out.println("Id do pedido: " + getId());
         System.out.println("Descricao: "+ getDescricao());
         System.out.println("Valor: "+ getValor());

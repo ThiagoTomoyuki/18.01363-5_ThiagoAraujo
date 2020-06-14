@@ -9,10 +9,10 @@ import models.*;
 import enums.EstadoDoPedido; 
 
 public class Sistema {
-    String descricao, id;
+    String descricao, id,senhaColocada;
     double valor;
     int op = 1;
-    int numeroDoPedido,senhaColocada;
+    int numeroDoPedido;
     int senha = 0;
     Usuario usuario = new Usuario("Pizzaria Rato que Ri", "EmailQualquer@hotmail.com");
     List <Pedido> pedidos = new ArrayList<>(); 
@@ -59,11 +59,11 @@ public class Sistema {
     public boolean autenticacao(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Coloque a senha:");
-        senhaColocada = Integer.parseInt(scanner.nextLine());        
+        senhaColocada = scanner.nextLine();        
         while(!(usuario.testarSenha(senhaColocada))){
             System.out.println("Senha errada!");
             System.out.println("Coloque a senha:");
-            senhaColocada = Integer.parseInt(scanner.nextLine());
+            senhaColocada = scanner.nextLine();
         }
         return true;
     }
