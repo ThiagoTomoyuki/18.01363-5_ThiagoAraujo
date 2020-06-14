@@ -1,4 +1,4 @@
-package sistema;
+package models;
 
 public class Usuario {
     String nome,email;

@@ -1,13 +1,21 @@
 package sistema;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
+import models.*;
 
 import enums.EstadoDoPedido; 
 
 public class Sistema {
+    String descricao, id;
+    double valor;
     EstadoDoPedido estadoDoPedido = EstadoDoPedido.REALIZADO;
     int op = 1;
     int senha = 0;
     Usuario usuario = new Usuario("Pizzaria Rato que Ri", "EmailQualquer@hotmail.com");
+    List <Pedido> pedidos = new ArrayList<>(); 
     public void run(){
 
         while(op!=0){
@@ -17,44 +25,30 @@ public class Sistema {
             System.out.println("3 - Alterar pedidos");
             System.out.println("0 - Sair");
             Scanner scanner = new Scanner(System.in);
-            op = scanner.nextInt();
+            op = Integer.parseInt(scanner.nextLine());
             if(op == 1){
-                while(senha != usuario.senha){
-                    System.out.println("Digite a senha para prosseguir: ");
-                    senha = scanner.nextInt();
-                    if(senha == usuario.senha){
-                        CadastrarPedido();
-                    }else{
-                        System.out.println("Senha Incorreta!");
-                    }
-                }
+                System.out.println("Qual a descricao: ");
+                descricao = scanner.nextLine();
+                System.out.println("Qual valor: ");
+                valor = Double.parseDouble(scanner.nextLine());
+                id = geradorId();
+                pedidos.add(new Pedido(id, descricao, valor));
             }else if(op == 2){
-                while(senha != usuario.senha){
-                    System.out.println("Digite a senha para prosseguir: ");
-                    senha = scanner.nextInt();
-                    if(senha == usuario.senha){
-
-                    }else{
-                        System.out.println("Senha Incorreta!");
-                    }
-                }
-
+                
             }else if(op == 3){
-                while(senha != usuario.senha){
-                    System.out.println("Digite a senha para prosseguir: ");
-                    senha = scanner.nextInt();
-                    if(senha == usuario.senha){
-
-                    }else{
-                        System.out.println("Senha Incorreta!");
-                    }
-                }
-
+                
             }else if(op != 0){
                 System.out.println("Digite uma opção valida!");
             }
         }    
     }
     private void CadastrarPedido(){
+    }
+    private String geradorId(){
+        Random random = new Random();
+        String idGerado = null;
+        for(int i = 0; i < 3; i++)
+            idGerado += random.nextInt(10);
+        return idGerado;
     }
 }
