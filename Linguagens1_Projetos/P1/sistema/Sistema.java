@@ -34,7 +34,7 @@ public class Sistema {
                 id = geradorId();
                 pedidos.add(new Pedido(id, descricao, valor));
             }else if(op == 2){
-                
+                printarPedidos();
             }else if(op == 3){
                 
             }else if(op != 0){
@@ -42,11 +42,17 @@ public class Sistema {
             }
         }    
     }
-    private void CadastrarPedido(){
+    public void printarPedidos(){
+        System.out.println("Pedidos:");
+        for (Pedido pedido : pedidos) {
+            System.out.println("Id do pedido: "+pedido.getId());
+            System.out.println("Descricao: "+pedido.getDescricao());
+            System.out.println("Valor: "+pedido.getValor());
+        }
     }
     private String geradorId(){
         Random random = new Random();
-        String idGerado = null;
+        String idGerado = "";
         for(int i = 0; i < 3; i++)
             idGerado += random.nextInt(10);
         return idGerado;

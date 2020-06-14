@@ -9,6 +9,7 @@ public class Pedido {
     public Pedido(String id,String descricao, double valor){
         this.id = id;
         this.descricao = descricao;
+        this.valor = valor;
     }
     public void AlterarEstadoDoPedido(int estadoDoPedido){
         if(estadoDoPedido == 1){
@@ -23,6 +24,7 @@ public class Pedido {
             this.estadoDoPedido = EstadoDoPedido.DEVOLVIDO;
         }
     }
+    
     public String getId(){
         return id;
     }
