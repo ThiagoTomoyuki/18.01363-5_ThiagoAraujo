@@ -13,4 +13,12 @@ public class Usuario {
     public String getEmail() {
         return email;
     }
+    public boolean testarSenha(int senhaColocada){
+        if(senhaColocada ==  senha){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
 }

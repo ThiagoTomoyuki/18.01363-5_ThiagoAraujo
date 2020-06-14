@@ -34,12 +34,11 @@ public class Pedido {
         }
     }
     public void printarPedidos(int i){
-        System.out.println("Pedidos:");
-            System.out.println((i+1)+"º Pedido");
-            System.out.println("Id do pedido: " + getId());
-            System.out.println("Descricao: "+ getDescricao());
-            System.out.println("Valor: "+ getValor());
-            System.out.println("Estado do pedido: " + estadoDoPedido);
+        System.out.println((i+1)+"º Pedido");
+        System.out.println("Id do pedido: " + getId());
+        System.out.println("Descricao: "+ getDescricao());
+        System.out.println("Valor: "+ getValor());
+        System.out.println("Estado do pedido: " + estadoDoPedido);
 
     }
     
