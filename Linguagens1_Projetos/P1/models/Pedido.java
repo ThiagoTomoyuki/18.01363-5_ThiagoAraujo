@@ -12,7 +12,9 @@ public class Pedido {
         this.descricao = descricao;
         this.valor = valor;
     }
-
+    /**
+    * Função que altera o estado do pedido
+    */
     public void AlterarEstadoDoPedido(){
         Scanner scanner = new Scanner(System.in);
         int estadoDoPedido;
@@ -35,7 +37,9 @@ public class Pedido {
             this.estadoDoPedido = EstadoDoPedido.DEVOLVIDO;
         }
     }
-
+    /**
+    * Função que printa os pedidos cadastrados
+    */
     public void printarPedidos(int i){
         System.out.println("\u001b[41m " + (i+1)+"º Pedido \u001b[0m ");
         System.out.println("Id do pedido: " + getId());
@@ -44,15 +48,21 @@ public class Pedido {
         System.out.println("Estado do pedido: " + estadoDoPedido);
 
     }
-    
+    /**
+    * Função que Retorna o Id do pedido
+    */
     public String getId(){
         return id;
     }
-
+    /**
+    * Função que Retorna a descrição do pedido
+    */
     public String getDescricao(){
         return descricao;
     }
-
+    /**
+    * Função que Retorna o valor do pedido
+    */
     public double getValor(){
         return valor;
     }

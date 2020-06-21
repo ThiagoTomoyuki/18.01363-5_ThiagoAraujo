@@ -16,10 +16,3 @@ public class Main{
         sistema.run();
     }
 }
-
-// perguntar{ 
-//    sobre interface
-//    se o codigo esta bom
-//    sobre documentaçaõ
-//    oq posso melhorar (pra deixar melhor o OO)
-// }

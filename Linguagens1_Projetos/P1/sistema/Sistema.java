@@ -15,6 +15,9 @@ public class Sistema implements autenticacao{
     int senha = 0;
     Usuario usuario = new Usuario("Pizzaria Rato que Ri", "EmailQualquer@hotmail.com");
     List <Pedido> pedidos = new ArrayList<>(); 
+    /**
+    * Função que roda o programa
+    */
     public void run(){
         if(autenticacao()){
             while(op!=0){
@@ -53,6 +56,9 @@ public class Sistema implements autenticacao{
             }
         }    
     }
+    /**
+    * Da override na autenticação
+    */
     @Override
     public boolean autenticacao(){
         Scanner scanner = new Scanner(System.in);
@@ -65,7 +71,9 @@ public class Sistema implements autenticacao{
         }
         return true;
     }
-
+    /**
+    * Gera um Id randomico para o pedido
+    */
     private String geradorId() {
         Random random = new Random();
         String idGerado = "";

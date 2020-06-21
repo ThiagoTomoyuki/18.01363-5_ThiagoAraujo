@@ -8,15 +8,21 @@ public class Usuario {
         this.nome = nome;
         this.email = email;
     }
-
+    /**
+    * Função que Retorna o nome
+    */
     public String getName(){
         return nome;
     }
-    
+    /**
+    * Função que Retorna o email
+    */
     public String getEmail() {
         return email;
     }
-
+    /**
+    * Função que Testa a senha colocada pelo usuario
+    */
     public boolean testarSenha(String senhaColocada){
         if(senhaColocada.equals(senha)){
             return true;
