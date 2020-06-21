@@ -6,11 +6,13 @@ public class Pedido {
     String id, descricao;
     double valor;
     EstadoDoPedido estadoDoPedido = EstadoDoPedido.REALIZADO;
+    
     public Pedido(String id,String descricao, double valor){
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
     }
+
     public void AlterarEstadoDoPedido(){
         Scanner scanner = new Scanner(System.in);
         int estadoDoPedido;
@@ -33,6 +35,7 @@ public class Pedido {
             this.estadoDoPedido = EstadoDoPedido.DEVOLVIDO;
         }
     }
+
     public void printarPedidos(int i){
         System.out.println("\u001b[41m " + (i+1)+"º Pedido \u001b[0m ");
         System.out.println("Id do pedido: " + getId());
@@ -45,9 +48,11 @@ public class Pedido {
     public String getId(){
         return id;
     }
+
     public String getDescricao(){
         return descricao;
     }
+
     public double getValor(){
         return valor;
     }
