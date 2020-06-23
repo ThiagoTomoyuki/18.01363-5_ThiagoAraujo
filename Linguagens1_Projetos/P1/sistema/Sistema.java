@@ -4,8 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+
+import enums.FormaPagamento;
 import models.*;
 import interfaces.autenticacao;
+
+/**
+ * @author Thiago T. Y. de Araujo - thiagotomoyuki@hotmail.com
+ * @since 14/06/2020
+ * @version 1.0
+ */
 
 public class Sistema implements autenticacao{
     String descricao, id,senhaColocada;
@@ -13,10 +21,12 @@ public class Sistema implements autenticacao{
     int op = 1;
     int numeroDoPedido;
     int senha = 0;
+    FormaPagamento formaPagamento;
     Usuario usuario = new Usuario("Pizzaria Rato que Ri", "EmailQualquer@hotmail.com");
     List <Pedido> pedidos = new ArrayList<>(); 
     /**
-    * Função que roda o programa
+    * Função que roda o programa<br><br>
+    *     Ela é responsavel rodar o programa
     */
     public void run(){
         if(autenticacao()){
@@ -28,14 +38,17 @@ public class Sistema implements autenticacao{
                 System.out.println("0 - Sair");
                 Scanner scanner = new Scanner(System.in);
                 op = Integer.parseInt(scanner.nextLine());
+            
                 if(op == 1){
                     if(autenticacao()){
                         System.out.println("Qual a descricao: ");
                         descricao = scanner.nextLine();
                         System.out.println("Qual valor: ");
                         valor = Double.parseDouble(scanner.nextLine());
-                        id = geradorId();
-                        pedidos.add(new Pedido(id, descricao, valor));
+                        id = geradorId();                        
+                        Pedido ped = new Pedido(id, descricao, valor);
+                        ped.formaDePagamento();                        
+                        pedidos.add(ped);
                     }
                     
                 }else if(op == 2){
@@ -57,7 +70,8 @@ public class Sistema implements autenticacao{
         }    
     }
     /**
-    * Da override na autenticação
+    * Da override na autenticação<br><br>
+    *     Ela é rodar o programa
     */
     @Override
     public boolean autenticacao(){
