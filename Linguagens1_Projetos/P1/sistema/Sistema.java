@@ -10,6 +10,8 @@ import models.*;
 import interfaces.autenticacao;
 
 /**
+ * Classe que roda o sistema e implementa autenticação
+ * 
  * @author Thiago T. Y. de Araujo - thiagotomoyuki@hotmail.com
  * @since 14/06/2020
  * @version 1.0
@@ -26,7 +28,7 @@ public class Sistema implements autenticacao{
     List <Pedido> pedidos = new ArrayList<>(); 
     /**
     * Função que roda o programa<br><br>
-    *     Ela é responsavel rodar o programa
+    *     Ela é responsavel por rodar o programa
     */
     public void run(){
         if(autenticacao()){
@@ -58,6 +60,9 @@ public class Sistema implements autenticacao{
                     }
                 }else if(op == 3){
                     if(autenticacao()){
+                        for(int i = 0; i< pedidos.size();i++){
+                            pedidos.get(i).printarPedidos(i);
+                        }
                         System.out.println("Qual o numero do pedido deseja alterar:");
                         numeroDoPedido = Integer.parseInt(scanner.nextLine());
                         pedidos.get(numeroDoPedido-1).AlterarEstadoDoPedido();
@@ -70,8 +75,7 @@ public class Sistema implements autenticacao{
         }    
     }
     /**
-    * Da override na autenticação<br><br>
-    *     Ela é rodar o programa
+    * Pergunta e autentica a senha colocada pelo usuario
     */
     @Override
     public boolean autenticacao(){

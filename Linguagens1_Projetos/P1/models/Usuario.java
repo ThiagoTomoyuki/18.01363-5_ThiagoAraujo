@@ -1,5 +1,11 @@
 package models;
 
+/**
+ * Classe que modela o usuario
+ * @author Thiago T. Y. de Araujo - thiagotomoyuki@hotmail.com
+ * @since 14/06/2020
+ * @version 1.0
+ */
 public class Usuario {
     String nome,email;
     private String senha = "123456";

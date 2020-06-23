@@ -2,6 +2,12 @@ package models;
 import java.util.Scanner;
 import enums.EstadoDoPedido;
 import enums.FormaPagamento;
+/**
+ * Classe que modela o pedido 
+ * @author Thiago T. Y. de Araujo - thiagotomoyuki@hotmail.com
+ * @since 14/06/2020
+ * @version 1.0
+ */
 
 public class Pedido {
     String id, descricao;
@@ -38,7 +44,9 @@ public class Pedido {
             this.estadoDoPedido = EstadoDoPedido.DEVOLVIDO;
         }
     }
-
+    /**
+    * Função que adiciona a forma de pagamento no pedido
+    */
     public void formaDePagamento(){
         Scanner scanner = new Scanner(System.in);
         int formaDePagamento;
@@ -73,19 +81,19 @@ public class Pedido {
         System.out.println("Forma de pagamento: " + formaPagamento);
     }
     /**
-    * Função que Retorna o Id do pedido
+    * Função que Retorna o Id(String) do pedido
     */
     public String getId(){
         return id;
     }
     /**
-    * Função que Retorna a descrição do pedido
+    * Função que Retorna a descrição(String) do pedido
     */
     public String getDescricao(){
         return descricao;
     }
     /**
-    * Função que Retorna o valor do pedido
+    * Função que Retorna o valor(double) do pedido
     */
     public double getValor(){
         return valor;
