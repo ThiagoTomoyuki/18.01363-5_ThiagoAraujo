@@ -4,50 +4,15 @@ package sistema;
 import models.Anime;
 import models.Manga;
 
-import java.sql.*;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class Sistema {
     boolean alive = true;
-    private List<Anime> listaAnimes;
-    private List<Manga> listaMangas;
+
     Scanner scanner = new Scanner(System.in);
     int opc;
-
     public void run() {
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:sqlite:sqlite.db");
-            Statement statement = connection.createStatement();
-            ResultSet resultAnime = statement.executeQuery("SELECT * FROM Anime");
-            while(resultAnime.next()){
-                Anime anime = new Anime(
-                        resultAnime.getString("url"),
-                        resultAnime.getString("nome"),
-                        resultAnime.getString("sinopse"),
-                        resultAnime.getInt("quantEpisodios"),
-                        resultAnime.getDouble("nota"));
-                System.out.println(anime.toString());
-                listaAnimes.add(anime);
-            }
-            resultAnime.close();
-            ResultSet resultManga = statement.executeQuery("SELECT * FROM Manga");
-            while(resultManga.next()){
-                Manga manga = new Manga(
-                        resultManga.getString("url"),
-                        resultManga.getString("nome"),
-                        resultManga.getString("sinopse"),
-                        resultManga.getInt("quantCap"),
-                        resultManga.getDouble("quantVolume"),
-                        resultManga.getString("tipo"),
-                        resultManga.getDouble("nota"));
-                listaMangas.add(manga);
-            }
-            resultManga.close();
-        } catch(SQLException throwables){
-            throwables.printStackTrace();
-        }
-
         do {
             opc = menu();
             switch (opc) {
@@ -77,10 +42,6 @@ public class Sistema {
     }
 
     private  void anime(){
-        String nome;
-        System.out.println("Qual o nome do anime desejado:");
-        nome = scanner.next();
-        System.out.println(listaAnimes);
 
 
     }
@@ -89,4 +50,61 @@ public class Sistema {
     private  void manga(){
         System.out.println("Qual o nome do manga desejado:");
     }
+/*
+    private static void leituraJava11(String nome, String opcao) throws Exception{
+        HttpClient client = HttpClient.newBuilder().build();
+        HttpRequest request = HttpRequest.newBuilder()
+                .GET()
+                .uri(URI.create("https://api.jikan.moe/v3/search/"+ opcao +"?q=" +nome))
+                .build();
+        HttpResponse<String> response = client.send(request,
+                HttpResponse.BodyHandlers.ofString());
+        if(opcao.equals("anime")){
+            Anime anime = new Anime(
+                    response.getString("url"),
+                    response.getString("nome"),
+                    response.getString("sinopse"),
+                    response.getInt("quantEpisodios"),
+                    response.getDouble("nota"));
+            insereBanco();
+            listaAnimes.add(anime);
+        }else if(opcao.equals("manga")){
+            Manga manga = new Manga(
+                    response.getString("url"),
+                    response.getString("nome"),
+                    response.getInt("quantCap"),
+                    response.getDouble("quantVolume"),
+                    response.getString("tipo"),
+                    response.getDouble("nota"));
+            insereBanco(opcao);
+            listaMangas.add(manga);
+        }
+
+        System.out.println("Status Code:" + response.statusCode());
+        System.out.println("Recebidos:");
+        System.out.println(response.body());
+    }
+
+ */
+    /*
+    public void insereBanco(String opcao){
+        if(opcao.equals("anime")){
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO "+opcao+" (nome, url, sinopse, quantEpisodios, nota) VALUES (?, ?, ?, ?, ?);");
+            preparedStatement.setString(1, anime.getNome());
+            preparedStatement.setString(2, produto.geturl());
+            preparedStatement.setString(3, produto.getSinopse());
+            preparedStatement.setDouble(4, produto.getCusto());
+            preparedStatement.setDouble(5, produto.getValor());
+            preparedStatement.setInt(6, produto.getQuantidade());
+        }
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO "+opcao+" (codigo, nome, descricao, custo, valor, quantidade) VALUES (?, ?, ?, ?, ?, ?);");
+        preparedStatement.setString(1, produto.getCodigo());
+        preparedStatement.setString(2, produto.getNome());
+        preparedStatement.setString(3, produto.getDescricao());
+        preparedStatement.setDouble(4, produto.getCusto());
+        preparedStatement.setDouble(5, produto.getValor());
+        preparedStatement.setInt(6, produto.getQuantidade());
+    }
+
+     */
 }
