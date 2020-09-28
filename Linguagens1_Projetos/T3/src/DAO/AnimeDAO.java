@@ -60,7 +60,7 @@ public class AnimeDAO implements DAO<Anime>{
     public Anime select( String nome) {
         try{
             Statement statement = connection.createStatement();
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Anime WHERE nome = ? ;");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Anime WHERE nome = ?");
             preparedStatement.setString(1,nome);
             ResultSet resultAnime = preparedStatement.executeQuery();
             while (resultAnime.next()) {
@@ -81,6 +81,21 @@ public class AnimeDAO implements DAO<Anime>{
         }
         return null;
     }
+
+    @Override
+    public void delete( String nome) {
+        try{
+            Statement statement = connection.createStatement();
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Anime WHERE nome = ?");
+            int retorno = preparedStatement.executeUpdate();
+            preparedStatement.close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+    }
+
 
 
 }
