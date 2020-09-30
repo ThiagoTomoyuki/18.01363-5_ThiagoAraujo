@@ -52,7 +52,11 @@ public class AnimeDAO implements DAO<Anime>{
             preparedStatement.setDouble(5, anime.getNota());
             int retorno = preparedStatement.executeUpdate();
         }catch (Exception e){
-            e.printStackTrace();
+            if(e.getMessage().contains("SQLITE_CONSTRAINT")){
+                select(anime.getNome());
+                System.out.println(anime);
+            }
+
         }
     }
 
@@ -60,9 +64,9 @@ public class AnimeDAO implements DAO<Anime>{
     public Anime select( String nome) {
         try{
             Statement statement = connection.createStatement();
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Anime WHERE nome = ?");
-            preparedStatement.setString(1,nome);
-            ResultSet resultAnime = preparedStatement.executeQuery();
+            statement.executeQuery("SELECT * FROM Anime WHERE nome LIKE '%" +nome+ "%'");
+            //PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Anime WHERE nome LIKE '%" +nome+ "%'");
+            ResultSet resultAnime = statement.executeQuery("SELECT * FROM Anime WHERE nome LIKE '%" +nome+ "%'");
             while (resultAnime.next()) {
                 Anime anime = new Anime(
                         resultAnime.getString("url"),

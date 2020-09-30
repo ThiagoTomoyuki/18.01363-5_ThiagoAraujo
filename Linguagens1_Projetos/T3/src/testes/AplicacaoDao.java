@@ -67,7 +67,7 @@ public class AplicacaoDao {
 
 
         if (anime == null) {
-            System.out.println("Dentro do null");
+            System.out.println("Não encontrado no Banco de Dados, fazendo request!");
             requestAPI(nome);
         } else {
             System.out.println(anime);
@@ -84,7 +84,7 @@ public class AplicacaoDao {
     }
 
     public void requestAPI(String nome) throws IOException, InterruptedException {
-        String retornaStringAPI = NetworkHelperAnime(nome);
+        String retornaStringAPI = NetworkHelperAnime(nome,"anime");
         try {
             JSONObject jsonObject = new JSONObject(retornaStringAPI);
             JSONArray result = jsonObject.getJSONArray("results");
@@ -96,7 +96,7 @@ public class AplicacaoDao {
                     ((JSONObject) result.get(0)).getDouble("score")
             );
             animeDao.create(anime);
-            animeDao.getAll();
+
 
 
         } catch (JSONException err) {
