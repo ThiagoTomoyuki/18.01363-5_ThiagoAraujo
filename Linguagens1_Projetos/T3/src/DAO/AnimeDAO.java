@@ -1,7 +1,6 @@
 package DAO;
 
 import models.Anime;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,9 +61,10 @@ public class AnimeDAO implements DAO<Anime>{
 
     @Override
     public Anime select( String nome) {
+        System.out.println("To no select");
         try{
             Statement statement = connection.createStatement();
-            statement.executeQuery("SELECT * FROM Anime WHERE nome LIKE '%" +nome+ "%'");
+            //statement.executeQuery("SELECT * FROM Anime WHERE nome LIKE '%" +nome+ "%'");
             //PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Anime WHERE nome LIKE '%" +nome+ "%'");
             ResultSet resultAnime = statement.executeQuery("SELECT * FROM Anime WHERE nome LIKE '%" +nome+ "%'");
             while (resultAnime.next()) {

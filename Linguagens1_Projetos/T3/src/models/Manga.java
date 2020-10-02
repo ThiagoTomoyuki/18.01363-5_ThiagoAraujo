@@ -6,7 +6,7 @@ public class Manga {
     private String sinopse;
     private int quantCap;
     private double quantVolume;
-    private  String tipo;
+    private String tipo;
     private double nota;
 
     public Manga(String url, String nome, String sinopse, int quantCap, double quantVolume, String tipo, double nota) {

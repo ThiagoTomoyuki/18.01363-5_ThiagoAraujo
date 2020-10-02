@@ -1,6 +1,6 @@
 package com.company;
 
-import sistema.Sistema;
+
 import testes.AplicacaoDao;
 
 import java.io.IOException;

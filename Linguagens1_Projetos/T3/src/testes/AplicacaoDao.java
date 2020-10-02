@@ -1,7 +1,9 @@
 package testes;
 
 import DAO.AnimeDAO;
+import DAO.MangaDAO;
 import models.Anime;
+import models.Manga;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,6 +23,8 @@ public class AplicacaoDao {
     String nome;
     private List<Anime> listAnimes;
     private AnimeDAO animeDao;
+    private List<Manga> listManga;
+    private MangaDAO mangaDao;
     private Scanner scanner;
 
     public AplicacaoDao() {
@@ -53,7 +57,24 @@ public class AplicacaoDao {
         } while (continuar);
     }
 
-    private void manga() {
+    private void manga() throws IOException, InterruptedException{
+        Manga manga;
+        System.out.println("Qual nome do Manga:");
+        nome = scanner.nextLine();
+        //System.out.println(nome);
+        //nome = toCamelCase(nome);
+        //System.out.println(nome);
+        try{
+            manga = mangaDao.select(nome);
+        }catch (NullPointerException e){
+            manga = null;
+        }
+        if (manga == null) {
+            System.out.println("Não encontrado no Banco de Dados, fazendo request!");
+            requestAPI(nome,"manga");
+        } else {
+            System.out.println(manga);
+        }
     }
 
     private void anime() throws IOException, InterruptedException {
@@ -68,7 +89,7 @@ public class AplicacaoDao {
 
         if (anime == null) {
             System.out.println("Não encontrado no Banco de Dados, fazendo request!");
-            requestAPI(nome);
+            requestAPI(nome,"anime");
         } else {
             System.out.println(anime);
         }
@@ -83,24 +104,53 @@ public class AplicacaoDao {
         return opc;
     }
 
-    public void requestAPI(String nome) throws IOException, InterruptedException {
-        String retornaStringAPI = NetworkHelperAnime(nome,"anime");
-        try {
-            JSONObject jsonObject = new JSONObject(retornaStringAPI);
-            JSONArray result = jsonObject.getJSONArray("results");
-            Anime anime = new Anime(
-                    ((JSONObject) result.get(0)).getString("url"),
-                    ((JSONObject) result.get(0)).getString("title"),
-                    ((JSONObject) result.get(0)).getString("synopsis"),
-                    ((JSONObject) result.get(0)).getInt("episodes"),
-                    ((JSONObject) result.get(0)).getDouble("score")
-            );
-            animeDao.create(anime);
+    public void requestAPI(String nome,String opc) throws IOException, InterruptedException {
+        if(opc.equals("anime")){
+            String retornaStringAPI = NetworkHelperAnime(nome,"anime");
+            try {
+                JSONObject jsonObject = new JSONObject(retornaStringAPI);
+                JSONArray result = jsonObject.getJSONArray("results");
+                Anime anime = new Anime(
+                        ((JSONObject) result.get(0)).getString("url"),
+                        ((JSONObject) result.get(0)).getString("title"),
+                        ((JSONObject) result.get(0)).getString("synopsis"),
+                        ((JSONObject) result.get(0)).getInt("episodes"),
+                        ((JSONObject) result.get(0)).getDouble("score")
+                );
+                animeDao.create(anime);
 
 
 
-        } catch (JSONException err) {
-            System.out.println(err);
+            } catch (JSONException err) {
+                System.out.println(err);
+            }
+        }else{
+            String retornaStringAPI = NetworkHelperAnime(nome,"manga");
+            try {
+                JSONObject jsonObject = new JSONObject(retornaStringAPI);
+                JSONArray result = jsonObject.getJSONArray("results");
+
+                Manga manga = new Manga(
+                        ((JSONObject) result.get(0)).getString("url"),
+                        ((JSONObject) result.get(0)).getString("title"),
+                        ((JSONObject) result.get(0)).getString("synopsis"),
+                        ((JSONObject) result.get(0)).getInt("chapters"),
+                        ((JSONObject) result.get(0)).getDouble("volumes"),
+                        ((JSONObject) result.get(0)).getString("type"),
+                        ((JSONObject) result.get(0)).getDouble("score")
+                );
+                System.out.println(manga);
+                try{
+                    mangaDao.create(manga);
+                }catch (NullPointerException e){
+                    System.out.println("vtnc");
+                }
+
+                System.out.println(manga);
+            } catch (JSONException | NullPointerException err) {
+                System.out.println(err);
+                System.out.println("vtnc");
+            }
         }
     }
 
