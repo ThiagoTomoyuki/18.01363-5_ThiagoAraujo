@@ -45,7 +45,7 @@ public class MangaDAO implements  DAO<Manga>{
 
     @Override
     public void create(Manga manga) {
-        System.out.println("pre conection");
+
         try{
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Manga(nome,url,sinopse,quantCap,quantVolume,tipo,nota) VALUES (?,?,?,?,?,?,?);");
             preparedStatement.setString(1, manga.getNome());
@@ -66,15 +66,11 @@ public class MangaDAO implements  DAO<Manga>{
 
     @Override
     public Manga select( String nome) {
-        System.out.println("to no selectManga");
-        System.out.println(nome);
         try{
-            System.out.println("to no try");
             Statement statement = connection.createStatement();
             //statement.executeQuery("SELECT * FROM Manga WHERE nome LIKE '%" +nome+ "%'");
             //PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Anime WHERE nome LIKE '%" +nome+ "%'");
             ResultSet resultManga = statement.executeQuery("SELECT * FROM Manga WHERE nome LIKE '%" +nome+ "%'");
-            System.out.println(resultManga);
             while (resultManga.next()) {
                 Manga manga = new Manga(
                         resultManga.getString("url"),
@@ -84,7 +80,6 @@ public class MangaDAO implements  DAO<Manga>{
                         resultManga.getDouble("quantVolume"),
                         resultManga.getString("tipo"),
                         resultManga.getDouble("nota"));
-                System.out.println(manga);
                 return manga;
             }
             resultManga.close();

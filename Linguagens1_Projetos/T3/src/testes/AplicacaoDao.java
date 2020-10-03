@@ -31,6 +31,7 @@ public class AplicacaoDao {
         listAnimes = new ArrayList<>();
         animeDao = new AnimeDAO();
         scanner = new Scanner(System.in);
+        mangaDao = new MangaDAO();
     }
 
     boolean continuar = true;
@@ -64,11 +65,8 @@ public class AplicacaoDao {
         //System.out.println(nome);
         //nome = toCamelCase(nome);
         //System.out.println(nome);
-        try{
-            manga = mangaDao.select(nome);
-        }catch (NullPointerException e){
-            manga = null;
-        }
+        manga = mangaDao.select(nome);
+
         if (manga == null) {
             System.out.println("Não encontrado no Banco de Dados, fazendo request!");
             requestAPI(nome,"manga");
@@ -85,8 +83,6 @@ public class AplicacaoDao {
         //nome = toCamelCase(nome);
         //System.out.println(nome);
         anime = animeDao.select(nome);
-
-
         if (anime == null) {
             System.out.println("Não encontrado no Banco de Dados, fazendo request!");
             requestAPI(nome,"anime");
@@ -140,16 +136,10 @@ public class AplicacaoDao {
                         ((JSONObject) result.get(0)).getDouble("score")
                 );
                 System.out.println(manga);
-                try{
-                    mangaDao.create(manga);
-                }catch (NullPointerException e){
-                    System.out.println("vtnc");
-                }
+                mangaDao.create(manga);
 
-                System.out.println(manga);
             } catch (JSONException | NullPointerException err) {
                 System.out.println(err);
-                System.out.println("vtnc");
             }
         }
     }
