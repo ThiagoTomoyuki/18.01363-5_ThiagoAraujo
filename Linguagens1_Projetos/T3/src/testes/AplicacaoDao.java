@@ -114,7 +114,7 @@ public class AplicacaoDao {
                         ((JSONObject) result.get(0)).getDouble("score")
                 );
                 animeDao.create(anime);
-
+                System.out.println(anime);
 
 
             } catch (JSONException err) {
