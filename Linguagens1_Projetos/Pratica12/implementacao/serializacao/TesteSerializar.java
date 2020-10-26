@@ -6,8 +6,8 @@ public class TesteSerializar {
     public static void main(String[] args) {
         System.out.println("Teste de Serialização");
 
-        Pessoa p1 = new Pessoa("Murilo", 31);
-        Pessoa p2 = new Pessoa("All Might", 35);
+        Pessoa p1 = new Pessoa("Thiago", 20);
+        Pessoa p2 = new Pessoa("Jorge", 25);
 
         System.out.println("Pessoas:" + p1 + p2);
 
