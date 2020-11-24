@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/../../.metadata/.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../EntradaDeDados/.project" beforeDir="false" afterPath="$PROJECT_DIR$/../../EntradaDeDados/.project" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sistema/Aplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema/Aplicacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Pratica01/aula/.project" beforeDir="false" afterPath="$PROJECT_DIR$/../Pratica01/aula/.project" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Pratica01/aula/ExemploArgs.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Pratica01/aula/ExemploArgs.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Pratica01/aula/MeuPrograma.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Pratica01/aula/MeuPrograma.class" afterDir="false" />
@@ -64,9 +63,9 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser" timestamp="1606226321547">
+    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser" timestamp="1606228167341">
       <screen x="0" y="0" width="1280" height="683" />
     </state>
-    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser/0.0.1280.683@0.0.1280.683" timestamp="1606226321547" />
+    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser/0.0.1280.683@0.0.1280.683" timestamp="1606228167341" />
   </component>
 </project>
