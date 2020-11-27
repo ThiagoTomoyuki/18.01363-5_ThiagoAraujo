@@ -2,12 +2,33 @@ package models;
 
 public class Personagem {
     String nome;
+
+    @Override
+    public String toString() {
+        return "Personagem{" +
+                "nome='" + nome + '\'' +
+                ", raca=" + raca +
+                ", prof=" + prof +
+                ", mana=" + mana +
+                ", ataque=" + ataque +
+                ", ataque_magico=" + ataque_magico +
+                ", defesa=" + defesa +
+                ", defesa_magica=" + defesa_magica +
+                ", velocidade=" + velocidade +
+                ", destreza=" + destreza +
+                ", exp=" + exp +
+                ", nivel_atual=" + nivel_atual +
+                '}';
+    }
+
     Enum raca,prof;
     int mana;
-    double ataque,ataque_magico,defesa,defesa_magica,velocidade,destreza;
+    int ataque,ataque_magico,defesa,defesa_magica,velocidade,destreza;
     int exp,nivel_atual;
 
-    public Personagem(String nome, Enum raca, Enum prof, int mana, double ataque, double ataque_magico, double defesa, double defesa_magica, double velocidade, double destreza, int exp, int nivel_atual) {
+
+
+    public Personagem(String nome, Enum raca, Enum prof, int mana, int ataque, int ataque_magico, int defesa, int defesa_magica, int velocidade, int destreza, int exp, int nivel_atual) {
         this.nome = nome;
         this.raca = raca;
         this.prof = prof;
@@ -16,44 +37,48 @@ public class Personagem {
         this.ataque_magico = ataque_magico;
         this.defesa = defesa;
         this.defesa_magica = defesa_magica;
-        this.velocidade = velocidade;
+        this.velocidade = velocidade;   
         this.destreza = destreza;
         this.exp = exp;
         this.nivel_atual = nivel_atual;
     }
-    public Enum getRaca() {
-        return raca;
+    public String getNome() {
+        return nome;
     }
 
-    public Enum getProf() {
-        return prof;
+    public String getRaca() {
+        return "" + raca;
+    }
+
+    public String getProf() {
+        return "" + prof;
     }
 
     public int getMana() {
         return mana;
     }
 
-    public double getAtaque() {
+    public int getAtaque() {
         return ataque;
     }
 
-    public double getAtaque_magico() {
+    public int getAtaque_magico() {
         return ataque_magico;
     }
 
-    public double getDefesa() {
+    public int getDefesa() {
         return defesa;
     }
 
-    public double getDefesa_magica() {
+    public int getDefesa_magica() {
         return defesa_magica;
     }
 
-    public double getVelocidade() {
+    public int getVelocidade() {
         return velocidade;
     }
 
-    public double getDestreza() {
+    public int getDestreza() {
         return destreza;
     }
 
@@ -81,27 +106,27 @@ public class Personagem {
         this.mana = mana;
     }
 
-    public void setAtaque(double ataque) {
+    public void setAtaque(int ataque) {
         this.ataque = ataque;
     }
 
-    public void setAtaque_magico(double ataque_magico) {
+    public void setAtaque_magico(int ataque_magico) {
         this.ataque_magico = ataque_magico;
     }
 
-    public void setDefesa(double defesa) {
+    public void setDefesa(int defesa) {
         this.defesa = defesa;
     }
 
-    public void setDefesa_magica(double defesa_magica) {
+    public void setDefesa_magica(int defesa_magica) {
         this.defesa_magica = defesa_magica;
     }
 
-    public void setVelocidade(double velocidade) {
+    public void setVelocidade(int velocidade) {
         this.velocidade = velocidade;
     }
 
-    public void setDestreza(double destreza) {
+    public void setDestreza(int destreza) {
         this.destreza = destreza;
     }
 

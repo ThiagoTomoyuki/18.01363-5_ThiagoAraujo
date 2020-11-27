@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="436723a8-4fc9-4431-a99f-1dd93b275a54" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../.metadata/.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../EntradaDeDados/.project" beforeDir="false" afterPath="$PROJECT_DIR$/../../EntradaDeDados/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/PersonagemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/PersonagemDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Personagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Personagem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema/Aplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema/Aplicacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pratica01/aula/.project" beforeDir="false" afterPath="$PROJECT_DIR$/../Pratica01/aula/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pratica01/aula/ExemploArgs.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Pratica01/aula/ExemploArgs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pratica01/aula/MeuPrograma.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Pratica01/aula/MeuPrograma.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pratica01/aula/TesteVSCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Pratica01/aula/TesteVSCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pratica01/aula/src/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Pratica01/aula/src/com/company/Main.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1kjrb9DtU14UB2BrXPtxqgJCEkz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+      <module name="untitled104" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="436723a8-4fc9-4431-a99f-1dd93b275a54" name="Default Changelist" comment="" />
+      <created>1606224914550</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606224914550</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser" timestamp="1606228167341">
+      <screen x="0" y="0" width="1280" height="683" />
+    </state>
+    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser/0.0.1280.683@0.0.1280.683" timestamp="1606228167341" />
+    <state width="1237" height="105" key="GridCell.Tab.0.bottom" timestamp="1606228802042">
+      <screen x="0" y="0" width="1280" height="683" />
+    </state>
+    <state width="1237" height="105" key="GridCell.Tab.0.bottom/0.0.1280.683@0.0.1280.683" timestamp="1606228802042" />
+    <state width="1237" height="105" key="GridCell.Tab.0.center" timestamp="1606228802042">
+      <screen x="0" y="0" width="1280" height="683" />
+    </state>
+    <state width="1237" height="105" key="GridCell.Tab.0.center/0.0.1280.683@0.0.1280.683" timestamp="1606228802042" />
+    <state width="1237" height="105" key="GridCell.Tab.0.left" timestamp="1606228802042">
+      <screen x="0" y="0" width="1280" height="683" />
+    </state>
+    <state width="1237" height="105" key="GridCell.Tab.0.left/0.0.1280.683@0.0.1280.683" timestamp="1606228802042" />
+    <state width="1237" height="105" key="GridCell.Tab.0.right" timestamp="1606228802042">
+      <screen x="0" y="0" width="1280" height="683" />
+    </state>
+    <state width="1237" height="105" key="GridCell.Tab.0.right/0.0.1280.683@0.0.1280.683" timestamp="1606228802042" />
+  </component>
+</project>

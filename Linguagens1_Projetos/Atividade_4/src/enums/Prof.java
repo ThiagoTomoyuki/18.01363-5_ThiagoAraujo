@@ -1,0 +1,5 @@
+package enums;
+
+public enum Prof {
+    DESEMPREGADO,CACADOR,PESCADOR,GARI,MEDICO,ENGENHEIRO,PADRE,BOMBEIRO;
+}
