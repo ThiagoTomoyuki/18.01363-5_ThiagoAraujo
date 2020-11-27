@@ -59,7 +59,7 @@ public class PersonagemDAO implements DAO<Personagem>{
    }
 
     @Override
-    public void create(Personagem personagem) {
+    public void create(Personagem personagem) throws SQLException {
         try{
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Personagens(nome,raca,prof,mana,ataque,ataque_magico,defesa,defesa_magica,velocidade,destreza,exp,nivel_atual) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);");
             preparedStatement.setString(1, personagem.getNome());
@@ -85,8 +85,56 @@ public class PersonagemDAO implements DAO<Personagem>{
     }
 
     @Override
-    public Personagem select(String nome) {
+    public Personagem select(String nome) throws SQLException {
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet resultPersonagem = statement.executeQuery("SELECT * FROM Personagens WHERE nome LIKE '%" +nome+ "%'");
+
+            while (resultPersonagem.next()) {
+                String raca = resultPersonagem.getString("raca");
+                Raca enumRaca = Raca.valueOf(raca);
+
+                String prof = resultPersonagem.getString("prof");
+                Prof enumProf = Prof.valueOf(prof);
+                Personagem personagem = new Personagem(
+                        resultPersonagem.getString("nome"),
+                        enumRaca,
+                        enumProf,
+                        resultPersonagem.getInt("mana"),
+                        resultPersonagem.getInt("ataque"),
+                        resultPersonagem.getInt("ataque_magico"),
+                        resultPersonagem.getInt("defesa"),
+                        resultPersonagem.getInt("defesa_magica"),
+                        resultPersonagem.getInt("velocidade"),
+                        resultPersonagem.getInt("destreza"),
+                        resultPersonagem.getInt("exp"),
+                        resultPersonagem.getInt("nivel_atual"));
+                return personagem;
+            }
+            resultPersonagem.close();
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
         return null;
+    }
+
+    @Override
+    public void UPDATE(String nome,Enum enums,String coluna,int valor) {
+        try {
+            Statement statement = connection.createStatement();
+            if(coluna.equals("raca")|| coluna.equals("prof")){
+                int resultPersonagem = statement.executeUpdate("UPDATE Personagens SET "+coluna+" = "+ "'" + enums+ "'" + " WHERE nome = "+ "'"+nome+ "'");
+            }else{
+                int resultPersonagem = statement.executeUpdate("UPDATE Personagens SET "+coluna+" = "+valor+" WHERE nome = "+ "'"+ nome+ "'");
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

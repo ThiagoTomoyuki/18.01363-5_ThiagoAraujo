@@ -42,6 +42,7 @@ public class Personagem {
         this.exp = exp;
         this.nivel_atual = nivel_atual;
     }
+
     public String getNome() {
         return nome;
     }
