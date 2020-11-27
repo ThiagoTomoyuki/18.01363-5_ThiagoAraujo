@@ -35,6 +35,7 @@ public class Aplicacao {
                     System.out.println("To no alterar");
                     break;
                 case 3:
+                    personagemDAO.getAll();
                     System.out.println("To no consultar");
                     break;
                 case 4:
@@ -69,7 +70,7 @@ public class Aplicacao {
         System.out.println("Qual o nome do personagem:");
         String nome = scanner.nextLine();
         System.out.println("Qual a raca do personagem:");
-        System.out.println("1-HUMANO\n2-ELFO\n3-FADA\n4-ANIMALOS\n5-VAMPIRO\n6-MAGO\n7-LUTADOR\n");
+        System.out.println("1-HUMANO\n2-ELFO\n3-FADA\n4-ANIMALOS\n5-VAMPIRO\n6-MAGO\n7-LUTADOR");
         int opcRaca = Integer.parseInt(scanner.nextLine());
         switch (opcRaca) {
             case 1:
@@ -174,12 +175,12 @@ public class Aplicacao {
             case 8:
                 prof = Prof.BOMBEIRO;
                 break;
-
             default:
                 throw new IllegalStateException("Unexpected value: " + opcProf);
         }
         personagem = new Personagem(nome,raca,prof,mana,ataque,ataque_magico,defesa,defesa_magica,velocidade,destreza,exp,nivel_atual);
-        System.out.println(personagem);
+        System.out.println("Personagem criado: "+personagem);
+
         personagemDAO.create(personagem);
     }
 }

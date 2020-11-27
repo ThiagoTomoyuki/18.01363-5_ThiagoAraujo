@@ -1,6 +1,8 @@
 package DAO;
 
+import enums.Raca;
 import models.Personagem;
+import enums.Prof;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,22 +29,26 @@ public class PersonagemDAO implements DAO<Personagem>{
             ResultSet resultPersonagem = statement.executeQuery("SELECT * FROM Personagens");
             while (resultPersonagem.next()) {
                 String raca = resultPersonagem.getString("raca");
-                System.out.println(raca);
-//                Personagem personagem = new Personagem(
-//                        resultPersonagem.getString("nome"),
-//                        resultPersonagem.getString("raca"),
-//                        resultPersonagem.getString("prof"),
-//                        resultPersonagem.getInt("mana"),
-//                        resultPersonagem.getInt("ataque"),
-//                        resultPersonagem.getInt("ataque_magico"),
-//                        resultPersonagem.getInt("defesa"),
-//                        resultPersonagem.getInt("defesa_magica"),
-//                        resultPersonagem.getInt("velocidade"),
-//                        resultPersonagem.getInt("destreza"),
-//                        resultPersonagem.getInt("exp"),
-//                        resultPersonagem.getInt("nivel_atual"));
-//                System.out.println(personagem);
-//                listPersonagens.add(personagem);
+                Raca enumRaca = Raca.valueOf(raca);
+
+                String prof = resultPersonagem.getString("prof");
+                Prof enumProf = Prof.valueOf(prof);
+
+                Personagem personagem = new Personagem(
+                        resultPersonagem.getString("nome"),
+                        enumRaca,
+                        enumProf,
+                        resultPersonagem.getInt("mana"),
+                        resultPersonagem.getInt("ataque"),
+                        resultPersonagem.getInt("ataque_magico"),
+                        resultPersonagem.getInt("defesa"),
+                        resultPersonagem.getInt("defesa_magica"),
+                        resultPersonagem.getInt("velocidade"),
+                        resultPersonagem.getInt("destreza"),
+                        resultPersonagem.getInt("exp"),
+                        resultPersonagem.getInt("nivel_atual"));
+                System.out.println(personagem);
+                listPersonagens.add(personagem);
             }
             resultPersonagem.close();
         }catch (Exception e){
