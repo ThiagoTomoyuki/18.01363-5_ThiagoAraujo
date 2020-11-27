@@ -88,8 +88,7 @@ public class PersonagemDAO implements DAO<Personagem>{
     public Personagem select(String nome) throws SQLException {
         try{
             Statement statement = connection.createStatement();
-            ResultSet resultPersonagem = statement.executeQuery("SELECT * FROM Personagens WHERE nome LIKE '%" +nome+ "%'");
-
+            ResultSet resultPersonagem = statement.executeQuery("SELECT * FROM Personagens WHERE nome ="+ "'" + nome+ "'");
             while (resultPersonagem.next()) {
                 String raca = resultPersonagem.getString("raca");
                 Raca enumRaca = Raca.valueOf(raca);
@@ -142,7 +141,11 @@ public class PersonagemDAO implements DAO<Personagem>{
         try{
             Statement statement = connection.createStatement();
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Personagens WHERE nome = "+"'"+nome+"'");
+
             int retorno = preparedStatement.executeUpdate();
+            if(retorno == 0){
+                System.out.println("Nome Invalido!Tente novamente");
+            }
             preparedStatement.close();
 
         }catch (Exception e){

@@ -31,7 +31,6 @@ public class Aplicacao {
                     break;
                 case 2:
                     alterar();
-                    System.out.println("To no alterar");
                     break;
                 case 3:
                     personagemDAO.getAll();
@@ -52,106 +51,147 @@ public class Aplicacao {
         String nome = scanner.nextLine();
         String coluna;
         int valor = 0;
-        System.out.println(personagemDAO.select(nome));
-        System.out.println("O que deseja alterar neles:");
-        System.out.println("1-raca");
-        System.out.println("2-prof");
-        System.out.println("3-exp");
-        System.out.println("4-nivel");
-        int opc = Integer.parseInt(scanner.nextLine());
-        switch (opc) {
-            case 1:
-                System.out.println("Para qual raça deseja alterar:");
-                System.out.println("1-HUMANO\n2-ELFO\n3-FADA\n4-ANIMALOS\n5-VAMPIRO\n6-MAGO\n7-LUTADOR");
-                opc = Integer.parseInt(scanner.nextLine());
-                coluna="raca";
-                Raca raca;
-                switch (opc) {
-                    case 1:
-                        raca = Raca.HUMANO;
-                        personagemDAO.UPDATE(nome,raca,coluna,valor);
+        if(personagemDAO.select(nome)!=null){
+            System.out.println(personagemDAO.select(nome));
+            System.out.println("O que deseja alterar neles:");
+            System.out.println("1-raca");
+            System.out.println("2-prof");
+            System.out.println("3-exp");
+            System.out.println("4-nivel");
+            int opc = Integer.parseInt(scanner.nextLine());
+            switch (opc) {
+                case 1:
+                    System.out.println("Para qual raça deseja alterar:");
+                    System.out.println("1-HUMANO\n2-ELFO\n3-FADA\n4-ANIMALOS\n5-VAMPIRO\n6-MAGO\n7-LUTADOR");
+                    opc = Integer.parseInt(scanner.nextLine());
+                    coluna="raca";
+                    Raca raca;
+                    switch (opc) {
+                        case 1:
+                            raca = Raca.HUMANO;
+                            personagemDAO.UPDATE(nome,raca,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        case 2:
+                            raca = Raca.ELFO;
+                            personagemDAO.UPDATE(nome,raca,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        case 3:
+                            raca = Raca.FADA;
+                            personagemDAO.UPDATE(nome,raca,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        case 4:
+                            raca = Raca.ANIMALOS;
+                            personagemDAO.UPDATE(nome,raca,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        case 5:
+                            raca = Raca.VAMPIRO;
+                            personagemDAO.UPDATE(nome,raca,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        case 6:
+                            raca = Raca.MAGO;
+                            personagemDAO.UPDATE(nome,raca,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        case 7:
+                            raca = Raca.LUTADOR;
+                            personagemDAO.UPDATE(nome,raca,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        default:
+                            System.out.println("Opcao Invalida!Tente novamente");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Para qual prof deseja alterar:");
+                    System.out.println("1-DESEMPREGADO\n2-CACADOR\n3-PESCADOR\n4-GARI\n5-MEDICO\n6-ENGENHEIRO\n7-PADRE\n8-BOMBEIRO");
+                    opc = Integer.parseInt(scanner.nextLine());
+                    coluna="prof";
+                    Prof prof;
+                    switch (opc) {
+                        case 1:
+                            prof = Prof.DESEMPREGADO;
+                            personagemDAO.UPDATE(nome,prof,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        case 2:
+                            prof = Prof.CACADOR;
+                            personagemDAO.UPDATE(nome,prof,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        case 3:
+                            prof = Prof.PESCADOR;
+                            personagemDAO.UPDATE(nome,prof,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        case 4:
+                            prof = Prof.GARI;
+                            personagemDAO.UPDATE(nome,prof,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        case 5:
+                            prof = Prof.MEDICO;
+                            personagemDAO.UPDATE(nome,prof,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        case 6:
+                            prof = Prof.ENGENHEIRO;
+                            personagemDAO.UPDATE(nome,prof,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        case 7:
+                            prof = Prof.PADRE;
+                            personagemDAO.UPDATE(nome,prof,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        case 8:
+                            prof = Prof.BOMBEIRO;
+                            personagemDAO.UPDATE(nome,prof,coluna,valor);
+                            System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                            break;
+                        default:
+                            System.out.println("Opcao Invalida!Tente novamente");
+
+                    }
+                    break;
+                case 3:
+                    System.out.println("Qual o novo valor da exp:");
+                    try{
+                        valor = Integer.parseInt(scanner.nextLine());
+                    }catch (NumberFormatException e){
+                        System.out.println("Opcao Invalida!Tente novamente");
                         break;
-                    case 2:
-                        raca = Raca.ELFO;
-                        personagemDAO.UPDATE(nome,raca,coluna,valor);
+                    }
+                    coluna = "exp";
+                    personagemDAO.UPDATE(nome,null,coluna,valor);
+                    System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                    break;
+                case 4:
+                    System.out.println("Qual o novo valor do novo nivel do personagem:");
+                    try{
+                        valor = Integer.parseInt(scanner.nextLine());
+                    }catch (NumberFormatException e){
+                        System.out.println("Opcao Invalida!Tente novamente");
                         break;
-                    case 3:
-                        raca = Raca.FADA;
-                        personagemDAO.UPDATE(nome,raca,coluna,valor);
-                        break;
-                    case 4:
-                        raca = Raca.ANIMALOS;
-                        personagemDAO.UPDATE(nome,raca,coluna,valor);
-                        break;
-                    case 5:
-                        raca = Raca.VAMPIRO;
-                        personagemDAO.UPDATE(nome,raca,coluna,valor);
-                        break;
-                    case 6:
-                        raca = Raca.MAGO;
-                        personagemDAO.UPDATE(nome,raca,coluna,valor);
-                        break;
-                    case 7:
-                        raca = Raca.LUTADOR;
-                        personagemDAO.UPDATE(nome,raca,coluna,valor);
-                        break;
-                }
-                break;
-            case 2:
-                System.out.println("Para qual prof deseja alterar:");
-                System.out.println("1-DESEMPREGADO\n2-CACADOR\n3-PESCADOR\n4-GARI\n5-MEDICO\n6-ENGENHEIRO\n7-PADRE\n8-BOMBEIRO");
-                opc = Integer.parseInt(scanner.nextLine());
-                coluna="prof";
-                Prof prof;
-                switch (opc) {
-                    case 1:
-                        prof = Prof.DESEMPREGADO;
-                        personagemDAO.UPDATE(nome,prof,coluna,valor);
-                        break;
-                    case 2:
-                        prof = Prof.CACADOR;
-                        personagemDAO.UPDATE(nome,prof,coluna,valor);
-                        break;
-                    case 3:
-                        prof = Prof.PESCADOR;
-                        personagemDAO.UPDATE(nome,prof,coluna,valor);
-                        break;
-                    case 4:
-                        prof = Prof.GARI;
-                        personagemDAO.UPDATE(nome,prof,coluna,valor);
-                        break;
-                    case 5:
-                        prof = Prof.MEDICO;
-                        personagemDAO.UPDATE(nome,prof,coluna,valor);
-                        break;
-                    case 6:
-                        prof = Prof.ENGENHEIRO;
-                        personagemDAO.UPDATE(nome,prof,coluna,valor);
-                        break;
-                    case 7:
-                        prof = Prof.PADRE;
-                        personagemDAO.UPDATE(nome,prof,coluna,valor);
-                        break;
-                    case 8:
-                        prof = Prof.BOMBEIRO;
-                        personagemDAO.UPDATE(nome,prof,coluna,valor);
-                        break;
-                }
-                break;
-            case 3:
-                System.out.println("Qual o novo valor da exp:");
-                valor = Integer.parseInt(scanner.nextLine());
-                coluna = "exp";
-                personagemDAO.UPDATE(nome,null,coluna,valor);
-                break;
-            case 4:
-                System.out.println("Qual o novo valor do novo nivel do personagem:");
-                valor = Integer.parseInt(scanner.nextLine());
-                coluna = "nivel_atual";
-                personagemDAO.UPDATE(nome,null,coluna,valor);
-                break;
+                    }
+
+                    coluna = "nivel_atual";
+                    personagemDAO.UPDATE(nome,null,coluna,valor);
+                    System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+                    break;
+                default:
+                    System.out.println("Opcao Invalida!Tente novamente");
+                    break;
+            }
+        }else{
+            System.out.println("Opcao Invalida!Tente novamente");
         }
-        System.out.println("Personagem alterado:"+personagemDAO.select(nome));
+
+
     }
 
     private void deletar() {
