@@ -16,7 +16,6 @@ public class PersonagemDAO implements DAO<Personagem>{
     public PersonagemDAO() throws SQLException {
         try{
             connection = DriverManager.getConnection(myDBConnection);
-            System.out.println("dasdasd");
         }catch (SQLException throwables){
             throwables.printStackTrace();
         }
@@ -92,6 +91,15 @@ public class PersonagemDAO implements DAO<Personagem>{
 
     @Override
     public void delete(String nome) {
+        try{
+            Statement statement = connection.createStatement();
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Personagens WHERE nome = "+"'"+nome+"'");
+            int retorno = preparedStatement.executeUpdate();
+            preparedStatement.close();
 
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
     }
 }

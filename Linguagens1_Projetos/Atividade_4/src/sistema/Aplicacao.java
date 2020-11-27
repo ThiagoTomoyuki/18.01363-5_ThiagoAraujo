@@ -28,17 +28,15 @@ public class Aplicacao {
                     break;
                 case 1:
                     criarPeronagem();
-                    System.out.println("To no criar");
-
                     break;
                 case 2:
                     System.out.println("To no alterar");
                     break;
                 case 3:
                     personagemDAO.getAll();
-                    System.out.println("To no consultar");
                     break;
                 case 4:
+                    deletar();
                     System.out.println("To no deletar");
                     break;
                 default:
@@ -46,6 +44,13 @@ public class Aplicacao {
             }
 
         } while (continuar);
+    }
+
+    private void deletar() {
+        personagemDAO.getAll();
+        System.out.println("Qual personagem deseja deletar:");
+        String nome = scanner.nextLine();
+        personagemDAO.delete(nome);
     }
 
     private int menu() {
