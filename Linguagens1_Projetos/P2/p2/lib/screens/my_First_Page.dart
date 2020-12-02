@@ -51,12 +51,57 @@ class _MyFirstPageState extends State<MyFirstPage> {
     account.puuid= dados1.puuid;
     account.name= dados1.name;
     account.summonerLevel=dados1.summonerLevel;
-    var requisicao2=NetworkHelper(url:"https://br1.api.riotgames.com/lol/match/v4/matchlists/by-account/"+account.accountId+"?endIndex=15&api_key="+_api_key);
+    var requisicao2=NetworkHelper(url:"https://br1.api.riotgames.com/lol/match/v4/matchlists/by-account/"+account.accountId+"?endIndex=10&api_key="+_api_key);
     var dados2 = Matches.fromJson(await requisicao2.getData());
+    // ignore: unnecessary_statements
+    List<int> listGameId=[
+      dados2.matches[0].gameId,
+      dados2.matches[1].gameId,
+      dados2.matches[2].gameId,
+      dados2.matches[3].gameId,
+      dados2.matches[4].gameId,
+      dados2.matches[5].gameId,
+      dados2.matches[6].gameId,
+      dados2.matches[7].gameId,
+      dados2.matches[8].gameId,
+      dados2.matches[9].gameId,
+    ];
+    var requisicao3=NetworkHelper(url:"https://br1.api.riotgames.com/lol/match/v4/matches/"+listGameId[0].toString()+"?api_key="+_api_key);
+    var match1 = Matche.fromJson(await requisicao3.getData());
+    var requisicao4=NetworkHelper(url:"https://br1.api.riotgames.com/lol/match/v4/matches/"+listGameId[1].toString()+"?api_key="+_api_key);
+    var match2 = Matche.fromJson(await requisicao4.getData());
+    var requisicao5=NetworkHelper(url:"https://br1.api.riotgames.com/lol/match/v4/matches/"+listGameId[2].toString()+"?api_key="+_api_key);
+    var match3 = Matche.fromJson(await requisicao5.getData());
+    var requisicao6=NetworkHelper(url:"https://br1.api.riotgames.com/lol/match/v4/matches/"+listGameId[3].toString()+"?api_key="+_api_key);
+    var match4 = Matche.fromJson(await requisicao6.getData());
+    var requisicao7=NetworkHelper(url:"https://br1.api.riotgames.com/lol/match/v4/matches/"+listGameId[4].toString()+"?api_key="+_api_key);
+    var match5 = Matche.fromJson(await requisicao7.getData());
+    var requisicao8=NetworkHelper(url:"https://br1.api.riotgames.com/lol/match/v4/matches/"+listGameId[5].toString()+"?api_key="+_api_key);
+    var match6 = Matche.fromJson(await requisicao8.getData());
+    var requisicao9=NetworkHelper(url:"https://br1.api.riotgames.com/lol/match/v4/matches/"+listGameId[6].toString()+"?api_key="+_api_key);
+    var match7 = Matche.fromJson(await requisicao9.getData());
+    var requisicao10=NetworkHelper(url:"https://br1.api.riotgames.com/lol/match/v4/matches/"+listGameId[7].toString()+"?api_key="+_api_key);
+    var match8 = Matche.fromJson(await requisicao10.getData());
+    var requisicao11=NetworkHelper(url:"https://br1.api.riotgames.com/lol/match/v4/matches/"+listGameId[8].toString()+"?api_key="+_api_key);
+    var match9 = Matche.fromJson(await requisicao11.getData());
+    var requisicao12=NetworkHelper(url:"https://br1.api.riotgames.com/lol/match/v4/matches/"+listGameId[9].toString()+"?api_key="+_api_key);
+    var match10 = Matche.fromJson(await requisicao12.getData());
+    List<Matche> allMatches=[
+      match1,
+      match2,
+      match3,
+      match4,
+      match5,
+      match6,
+      match7,
+      match8,
+      match9,
+      match10,
+    ];
     Navigator.push(
             context,
             MaterialPageRoute(builder: (context) =>
-              Partida(dados2.matches)
+              Partida(allMatches)
             ),
     );
   } 

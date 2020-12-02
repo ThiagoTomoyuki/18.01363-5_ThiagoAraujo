@@ -18,7 +18,7 @@ class Partida extends StatelessWidget {
       body:Column(
         children: [
           SizedBox(width:300,height: 200,child:Image.asset("assets/dices/logoLOL.png")),
-          Text("Partidas recentes (Últimas 15 jogadas) de "+account.name,style:TextStyle(fontSize: 20)),
+          Text("Partidas recentes (Últimas 15 jogadas)",style:TextStyle(fontSize: 20)),
           Expanded(
             child: Row(children: [
               Column(

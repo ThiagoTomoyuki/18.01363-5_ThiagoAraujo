@@ -63,6 +63,8 @@ class Matche {
     lane = json['lane'];
   }
 
+  Object get matche => null;
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['platformId'] = this.platformId;
