@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:p2/models/Account.dart';
 import 'package:p2/models/Matches.dart';
-import 'package:p2/models/Campeao.dart';
-import 'package:p2/utilites/IdsChampions.json';
 
 // ignore: must_be_immutable
 class Partida extends StatelessWidget {
@@ -20,20 +18,34 @@ class Partida extends StatelessWidget {
       body:Column(
         children: [
           SizedBox(width:300,height: 200,child:Image.asset("assets/dices/logoLOL.png")),
-          Text("Partidas recentes (Últimas 15 jogadas) ",style:TextStyle(fontSize: 20)),
+          Text("Partidas recentes (Últimas 15 jogadas) de "+account.name,style:TextStyle(fontSize: 20)),
           Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                final item = allMatches[index];
-                return Container(
-                        child: ListTile(
-                          title:Text(""),
-                          subtitle: SizedBox(child: Image.network("https://streamie.com.br/wp-content/uploads/2018/02/img-kaisa-capa.png"),height: 50,width: 100),
-                        ),
-                );
-              },
-              itemCount: allMatches.length,
-            ),
+            child: Row(children: [
+              Column(
+                children:[
+                  Text("Nome campeao"),
+                  SizedBox(width:100,height: 50,child: Image.network("https://pyre-media-2.s3.sa-east-1.amazonaws.com/1fc06b12-a8b8-4dbb-a692-9111bc084e7cleague-of-legends-maracanazinho.png"))
+                ]
+              ),
+              Column(
+                children:[
+                  Text("KDA"),
+                  
+                ]
+              ),
+              Column(
+                children:[
+                  Text("DATA"),
+                ]
+              ),
+              Column(
+                children:[
+                  Text("WON"),
+                ]
+              ),
+              
+
+            ],),
           )
         ]
       )
