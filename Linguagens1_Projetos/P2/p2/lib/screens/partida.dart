@@ -1,40 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:p2/models/Account.dart';
-import 'package:p2/utilites/network_helper.dart';
+import 'package:p2/models/Matches.dart';
+import 'package:p2/models/Campeao.dart';
+import 'package:p2/utilites/IdsChampions.json';
 
 // ignore: must_be_immutable
 class Partida extends StatelessWidget {
-  String nomeInvocador;
+  List<Matche> allMatches;
   Account account = new Account();
-  Partida(this.nomeInvocador);
+  Matches matches = new Matches();
+  Partida(this.allMatches);
   @override
   Widget build(BuildContext context) {
-    accountResponse();
+    print(allMatches[0].champion);
+    
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(title:Text("Historico de partidas"),backgroundColor: Colors.blueAccent),
       body:Column(
         children: [
-          Center(),
           SizedBox(width:300,height: 200,child:Image.asset("assets/dices/logoLOL.png")),
-          Text("Partidas recentes (Últimas 15 jogadas) de ",style:TextStyle(fontSize: 20)),
+          Text("Partidas recentes (Últimas 15 jogadas) ",style:TextStyle(fontSize: 20)),
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                final item = allMatches[index];
+                return Container(
+                        child: ListTile(
+                          title:Text(""),
+                          subtitle: SizedBox(child: Image.network("https://streamie.com.br/wp-content/uploads/2018/02/img-kaisa-capa.png"),height: 50,width: 100),
+                        ),
+                );
+              },
+              itemCount: allMatches.length,
+            ),
+          )
         ]
       )
     );
   }
-  void accountResponse() async {
-  const api_key="RGAPI-b56a8197-d3c1-45f2-b158-3025f9885caa";
-  var requisicao = NetworkHelper(url:"https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+nomeInvocador+"?api_key="+api_key);
-  var dados1 = Account.fromJson(await requisicao.getData());
-  
-  account.id= dados1.id;
-  account.accountId=dados1.accountId;
-  account.puuid= dados1.puuid;
-  account.name= dados1.name;
-  account.summonerLevel=dados1.summonerLevel;
-  requisicao=NetworkHelper(url:"https://br1.api.riotgames.com/lol/match/v4/matchlists/by-account/"+account.accountId+"?endIndex=15&api_key="+api_key);
-  var dados2 = Account.fromJson(await requisicao.getData());
-  print(dados2);
-  }   
 }
-
